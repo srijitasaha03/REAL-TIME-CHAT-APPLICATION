@@ -1,72 +1,36 @@
 # Real-Time Chat Application
 
-This is a real-time chat application built using React.js and Socket.IO. It features group chat functionality and typing indicators to enhance user experience.
+This is a real-time chat application built using React.js for the client-side and Node.js with Socket.IO for the server-side. The application supports group chat functionality and includes typing indicators to enhance user experience.
 
-## Features
-
-- **Group Chat**: Users can join a chat room and communicate with multiple participants in real-time.
-- **Typing Indicators**: Users can see when others are typing, providing a more interactive chat experience.
-
-## Getting Started
+## Server Setup
 
 ### Prerequisites
-
-- Node.js (version 14 or higher)
-- npm (version 6 or higher)
+- Node.js
+- npm
 
 ### Installation
-
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
-
-2. Navigate to the client directory:
-   ```
-   cd real-time-chat-app/client
-   ```
-
-3. Install the client dependencies:
-   ```
-   npm install
-   ```
-
-4. Navigate to the server directory:
-   ```
-   cd ../server
-   ```
-
-5. Install the server dependencies:
-   ```
-   npm install
-   ```
-
-### Running the Application
-
-1. Start the server:
+1. Navigate to the server directory:
    ```
    cd server
-   npm start
+   ```
+2. Install the required dependencies:
+   ```
+   npm install
    ```
 
-2. In a new terminal, start the client:
-   ```
-   cd client
-   npm start
-   ```
+### Running the Server
+To start the server, run the following command:
+```
+npm start
+```
+The server will be running on `http://localhost:5000` by default.
 
-3. Open your browser and go to `http://localhost:3000` to access the chat application.
+### Socket.IO Configuration
+The server uses Socket.IO to handle real-time communication. The main logic for handling socket events is located in `src/socket.js`.
 
-## Usage
+### API Endpoints
+The server currently does not expose any RESTful API endpoints, as it primarily communicates through WebSocket events.
 
-- Users can enter their name and join the chat.
-- Messages can be sent to the group chat.
-- Typing indicators will show when other users are typing.
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or features.
-
-## License
-
-This project is licensed under the MIT License.
+### Additional Notes
+- Ensure that the client application is running simultaneously to test the chat functionality.
+- You can customize the server settings and Socket.IO configurations in `src/index.js` and `src/socket.js` as needed.

@@ -1,11 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './styles/App.css';
+const express = require('express');
+const http = require('http');
+const socketIo = require('socket.io');
+const setupSocket = require('./socket'); // 🔧 fixed this line
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const app = express();
+const server = http.createServer(app);
+const io = socketIo(server);
+
+setupSocket(io);
+
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
